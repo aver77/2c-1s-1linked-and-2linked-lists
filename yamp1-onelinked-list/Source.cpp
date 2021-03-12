@@ -10,30 +10,30 @@ using std::endl;
 using std::ifstream;
 using std::ofstream;
 
-struct Node // 0 - представление узла ОЛС в виде структуры и определение в typedef
+struct Node // 0 - РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ СѓР·Р»Р° РћР›РЎ РІ РІРёРґРµ СЃС‚СЂСѓРєС‚СѓСЂС‹ Рё РѕРїСЂРµРґРµР»РµРЅРёРµ РІ typedef
 {
-	int info; //поле данных
-	Node *next; //указатель на следующий элкмент
+	int info; //РїРѕР»Рµ РґР°РЅРЅС‹С…
+	Node *next; //СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃР»РµРґСѓСЋС‰РёР№ СЌР»РєРјРµРЅС‚
 };
 typedef Node* TList;
 
-void Init(TList &list); // - 1 инициализация
-bool Empty(TList list); // 2 - проверка на пустоту
-void Add_to_head(TList &list, int new_elem); // 3 - алг добавление элемента в список
+void Init(TList &list); // - 1 РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ
+bool Empty(TList list); // 2 - РїСЂРѕРІРµСЂРєР° РЅР° РїСѓСЃС‚РѕС‚Сѓ
+void Add_to_head(TList &list, int new_elem); // 3 - Р°Р»Рі РґРѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РІ СЃРїРёСЃРѕРє
 void Add_after_Node(TList& list, int elem);
-int Delete_from_head(TList &list); // 4 - удал элемента из начала списка
+int Delete_from_head(TList &list); // 4 - СѓРґР°Р» СЌР»РµРјРµРЅС‚Р° РёР· РЅР°С‡Р°Р»Р° СЃРїРёСЃРєР°
 void Sort(TList& list);
-void Create_as_Stack(TList &list, ifstream &fin); //5 - созд списка (эл-ты добавл в голову списка)
-void Clear(TList &list); // 6 - уничтожение списка
+void Create_as_Stack(TList &list, ifstream &fin); //5 - СЃРѕР·Рґ СЃРїРёСЃРєР° (СЌР»-С‚С‹ РґРѕР±Р°РІР» РІ РіРѕР»РѕРІСѓ СЃРїРёСЃРєР°)
+void Clear(TList &list); // 6 - СѓРЅРёС‡С‚РѕР¶РµРЅРёРµ СЃРїРёСЃРєР°
 void Print(TList list);
-void Print_to_file(TList list, ofstream& fout); // 7 - печать списка
-void Sort(TList &list); //алг сортировки методом пузырька
-void task1(TList& list); //добавление 0 после первой последовательности из нечетных чисел
+void Print_to_file(TList list, ofstream& fout); // 7 - РїРµС‡Р°С‚СЊ СЃРїРёСЃРєР°
+void Sort(TList &list); //Р°Р»Рі СЃРѕСЂС‚РёСЂРѕРІРєРё РјРµС‚РѕРґРѕРј РїСѓР·С‹СЂСЊРєР°
+void task1(TList& list); //РґРѕР±Р°РІР»РµРЅРёРµ 0 РїРѕСЃР»Рµ РїРµСЂРІРѕР№ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё РёР· РЅРµС‡РµС‚РЅС‹С… С‡РёСЃРµР»
 
 int main()
 {
-	SetConsoleCP(1251);// установка кодовой страницы win-cp 1251 в поток ввода
-	SetConsoleOutputCP(1251); // установка кодовой страницы win-cp 1251 в поток вывода
+	SetConsoleCP(1251);// СѓСЃС‚Р°РЅРѕРІРєР° РєРѕРґРѕРІРѕР№ СЃС‚СЂР°РЅРёС†С‹ win-cp 1251 РІ РїРѕС‚РѕРє РІРІРѕРґР°
+	SetConsoleOutputCP(1251); // СѓСЃС‚Р°РЅРѕРІРєР° РєРѕРґРѕРІРѕР№ СЃС‚СЂР°РЅРёС†С‹ win-cp 1251 РІ РїРѕС‚РѕРє РІС‹РІРѕРґР°
 
 	cout << "Enter name input.txt of input file" << endl;
 	string path;
@@ -46,8 +46,8 @@ int main()
 	{
 		cout << "File successfully opened" << endl;
 		TList list;
-		Create_as_Stack(list, fin); //созд отсортированного по возр списка
-		//контрольная печать
+		Create_as_Stack(list, fin); //СЃРѕР·Рґ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅРѕРіРѕ РїРѕ РІРѕР·СЂ СЃРїРёСЃРєР°
+		//РєРѕРЅС‚СЂРѕР»СЊРЅР°СЏ РїРµС‡Р°С‚СЊ
 		Print(list);
 		task1(list);
 		Print(list);
@@ -64,17 +64,17 @@ int main()
 	return 0;
 }
 
-void Init(TList &list) // - 1 инициализация
+void Init(TList &list) // - 1 РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ
 {
 	list = nullptr;
 }
 
-bool Empty(TList list) // 2 - проверка на пустоту
+bool Empty(TList list) // 2 - РїСЂРѕРІРµСЂРєР° РЅР° РїСѓСЃС‚РѕС‚Сѓ
 {
 	return list == nullptr;
 }
 
-void Add_to_head(TList &list, int new_elem) // 3 - алг добавление элемента в список
+void Add_to_head(TList &list, int new_elem) // 3 - Р°Р»Рі РґРѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РІ СЃРїРёСЃРѕРє
 {
 	TList p = new Node;
 	p->info = new_elem;
@@ -89,7 +89,7 @@ void Add_after_Node(TList& list, int elem) {
 	list->next = newNode;
 }
 
-int Delete_from_head(TList &list) // 4 - удал элемента из начала списка
+int Delete_from_head(TList &list) // 4 - СѓРґР°Р» СЌР»РµРјРµРЅС‚Р° РёР· РЅР°С‡Р°Р»Р° СЃРїРёСЃРєР°
 {
 	TList p = list;
 	list = p->next;
@@ -99,7 +99,7 @@ int Delete_from_head(TList &list) // 4 - удал элемента из начала списка
 	return elem;
 }
 
-void Create_as_Stack(TList &list, ifstream &fin) //5 - созд списка (эл-ты добавл в голову списка)
+void Create_as_Stack(TList &list, ifstream &fin) //5 - СЃРѕР·Рґ СЃРїРёСЃРєР° (СЌР»-С‚С‹ РґРѕР±Р°РІР» РІ РіРѕР»РѕРІСѓ СЃРїРёСЃРєР°)
 {
 	Init(list);
 	int x;
@@ -110,7 +110,7 @@ void Create_as_Stack(TList &list, ifstream &fin) //5 - созд списка (эл-ты добавл
 	Sort(list);
 }
 
-void Clear(TList &list) // 6 - уничтожение списка
+void Clear(TList &list) // 6 - СѓРЅРёС‡С‚РѕР¶РµРЅРёРµ СЃРїРёСЃРєР°
 {
 	while (!Empty(list))
 	{
@@ -118,7 +118,7 @@ void Clear(TList &list) // 6 - уничтожение списка
 	}
 }
 
-void Print_to_file(TList list, ofstream& fout) // 7 - печать списка
+void Print_to_file(TList list, ofstream& fout) // 7 - РїРµС‡Р°С‚СЊ СЃРїРёСЃРєР°
 {
 	TList p = list;
 	while (p != nullptr)
@@ -139,50 +139,50 @@ void Print(TList list)
 	cout << endl;
 }
 
-void Sort(TList &list) //алг сортировки методом пузырька
+void Sort(TList &list) //Р°Р»Рі СЃРѕСЂС‚РёСЂРѕРІРєРё РјРµС‚РѕРґРѕРј РїСѓР·С‹СЂСЊРєР°
 {
 	int changes;
 	TList temp;
 	do {
-		changes = 0; //обнуляем количество перестановок
-		temp = list; //элемент списка
-		while (temp->next != nullptr) { //пока не дошли до последнего элемента (его указатель указывает на nullptr)
-			if (temp->info > temp->next->info) // если предыдуш эл - т больше след
+		changes = 0; //РѕР±РЅСѓР»СЏРµРј РєРѕР»РёС‡РµСЃС‚РІРѕ РїРµСЂРµСЃС‚Р°РЅРѕРІРѕРє
+		temp = list; //СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР°
+		while (temp->next != nullptr) { //РїРѕРєР° РЅРµ РґРѕС€Р»Рё РґРѕ РїРѕСЃР»РµРґРЅРµРіРѕ СЌР»РµРјРµРЅС‚Р° (РµРіРѕ СѓРєР°Р·Р°С‚РµР»СЊ СѓРєР°Р·С‹РІР°РµС‚ РЅР° nullptr)
+			if (temp->info > temp->next->info) // РµСЃР»Рё РїСЂРµРґС‹РґСѓС€ СЌР» - С‚ Р±РѕР»СЊС€Рµ СЃР»РµРґ
 			{
 				int tempInfo = temp->info;
 				temp->info = temp->next->info;
-				temp->next->info = tempInfo; //то меняем их местами
-				changes++; //у нас уже есть 1 изменение
+				temp->next->info = tempInfo; //С‚Рѕ РјРµРЅСЏРµРј РёС… РјРµСЃС‚Р°РјРё
+				changes++; //Сѓ РЅР°СЃ СѓР¶Рµ РµСЃС‚СЊ 1 РёР·РјРµРЅРµРЅРёРµ
 			}
-			temp = temp->next; //переходим к следующему эл-ту
+			temp = temp->next; //РїРµСЂРµС…РѕРґРёРј Рє СЃР»РµРґСѓСЋС‰РµРјСѓ СЌР»-С‚Сѓ
 		}
-	} while (changes); //в самом конце, когда дойдем до последнего эл-та  changes не увеличится и while не выполнится - следовательно выходим
+	} while (changes); //РІ СЃР°РјРѕРј РєРѕРЅС†Рµ, РєРѕРіРґР° РґРѕР№РґРµРј РґРѕ РїРѕСЃР»РµРґРЅРµРіРѕ СЌР»-С‚Р°  changes РЅРµ СѓРІРµР»РёС‡РёС‚СЃСЏ Рё while РЅРµ РІС‹РїРѕР»РЅРёС‚СЃСЏ - СЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕ РІС‹С…РѕРґРёРј
 }
 
 //  8 5 7 0 4 3 26 7
 /*void task1(TList& list)
 {
-	bool sqnceFound = false; //показывает, найдена ли последовательность
-	TList temp = list; //копия эл-та
-	TList prev = nullptr; //предыдущ эл-т
+	bool sqnceFound = false; //РїРѕРєР°Р·С‹РІР°РµС‚, РЅР°Р№РґРµРЅР° Р»Рё РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ
+	TList temp = list; //РєРѕРїРёСЏ СЌР»-С‚Р°
+	TList prev = nullptr; //РїСЂРµРґС‹РґСѓС‰ СЌР»-С‚
 	while (temp != nullptr) 
 	{
-		if (abs(temp->info % 2) != 0) //если эл-т нечетный, то
+		if (abs(temp->info % 2) != 0) //РµСЃР»Рё СЌР»-С‚ РЅРµС‡РµС‚РЅС‹Р№, С‚Рѕ
 		{
-			sqnceFound = true; //послед или ее начало найдено
+			sqnceFound = true; //РїРѕСЃР»РµРґ РёР»Рё РµРµ РЅР°С‡Р°Р»Рѕ РЅР°Р№РґРµРЅРѕ
 			prev = temp;
-			temp = temp->next; //переходим к следующему эл-ту
+			temp = temp->next; //РїРµСЂРµС…РѕРґРёРј Рє СЃР»РµРґСѓСЋС‰РµРјСѓ СЌР»-С‚Сѓ
 		}
-		else if (sqnceFound) //данный if выполнится, если последовательность найдена, но следующий элемент после нее четный => переходим к функции add_after_node()
+		else if (sqnceFound) //РґР°РЅРЅС‹Р№ if РІС‹РїРѕР»РЅРёС‚СЃСЏ, РµСЃР»Рё РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ РЅР°Р№РґРµРЅР°, РЅРѕ СЃР»РµРґСѓСЋС‰РёР№ СЌР»РµРјРµРЅС‚ РїРѕСЃР»Рµ РЅРµРµ С‡РµС‚РЅС‹Р№ => РїРµСЂРµС…РѕРґРёРј Рє С„СѓРЅРєС†РёРё add_after_node()
 		{
 			temp = nullptr;
 		}
-		else //переход к следующему эл-ту (но без найденой последовательности)
+		else //РїРµСЂРµС…РѕРґ Рє СЃР»РµРґСѓСЋС‰РµРјСѓ СЌР»-С‚Сѓ (РЅРѕ Р±РµР· РЅР°Р№РґРµРЅРѕР№ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё)
 		{
 			temp = temp->next;
 		}
 	}
-	Add_after_Node(prev, 0); //после предыдущ (за temp - первый четный эл-т после последовательности) ставим 0
+	Add_after_Node(prev, 0); //РїРѕСЃР»Рµ РїСЂРµРґС‹РґСѓС‰ (Р·Р° temp - РїРµСЂРІС‹Р№ С‡РµС‚РЅС‹Р№ СЌР»-С‚ РїРѕСЃР»Рµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё) СЃС‚Р°РІРёРј 0
 }*/
 
 void task1(TList &list)
