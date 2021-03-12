@@ -14,11 +14,11 @@ struct Node
 };
 typedef Node* TList;
 
-void Init(TList&); //инициализация
-void Insert_to_head(TList&, book&); //вставка в голову
-void Insert_after_Node(TList&, book&); //вставка после эл-та
-void Delete(TList&); //уничтож эл-та поочередно с начала списка
-void Clear(TList&); //уничтож списка
-void Print_list(TList); //печать списка
-void Create_from_file(TList &list, ifstream&); //создаем список упорядоченный по годам
-TList Find_place(TList, book&); //поиск места вставки - возвращает адрес в который нужно вставить эл-т
+void Init(TList&); //РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ
+void Insert_to_head(TList&, book&); //РІСЃС‚Р°РІРєР° РІ РіРѕР»РѕРІСѓ
+void Insert_after_Node(TList&, book&); //РІСЃС‚Р°РІРєР° РїРѕСЃР»Рµ СЌР»-С‚Р°
+void Delete(TList&); //СѓРЅРёС‡С‚РѕР¶ СЌР»-С‚Р° РїРѕРѕС‡РµСЂРµРґРЅРѕ СЃ РЅР°С‡Р°Р»Р° СЃРїРёСЃРєР°
+void Clear(TList&); //СѓРЅРёС‡С‚РѕР¶ СЃРїРёСЃРєР°
+void Print_list(TList); //РїРµС‡Р°С‚СЊ СЃРїРёСЃРєР°
+void Create_from_file(TList &list, ifstream&); //СЃРѕР·РґР°РµРј СЃРїРёСЃРѕРє СѓРїРѕСЂСЏРґРѕС‡РµРЅРЅС‹Р№ РїРѕ РіРѕРґР°Рј
+TList Find_place(TList, book&); //РїРѕРёСЃРє РјРµСЃС‚Р° РІСЃС‚Р°РІРєРё - РІРѕР·РІСЂР°С‰Р°РµС‚ Р°РґСЂРµСЃ РІ РєРѕС‚РѕСЂС‹Р№ РЅСѓР¶РЅРѕ РІСЃС‚Р°РІРёС‚СЊ СЌР»-С‚
