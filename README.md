@@ -1,1 +1,1 @@
-# 2coure-1sem
+# 2course-1sem
