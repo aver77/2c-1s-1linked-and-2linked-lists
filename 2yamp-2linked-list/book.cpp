@@ -1,4 +1,4 @@
-#include "book.h"
+include "book.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -16,7 +16,7 @@ int book::get_year()
 
 book::book() {}
 
-book::book(book& goal) //данная функция понадобится нам в методе сравнения, чтобы обратиться к полю year следующего обьекта
+book::book(book& goal) //РґР°РЅРЅР°СЏ С„СѓРЅРєС†РёСЏ РїРѕРЅР°РґРѕР±РёС‚СЃСЏ РЅР°Рј РІ РјРµС‚РѕРґРµ СЃСЂР°РІРЅРµРЅРёСЏ, С‡С‚РѕР±С‹ РѕР±СЂР°С‚РёС‚СЊСЃСЏ Рє РїРѕР»СЋ year СЃР»РµРґСѓСЋС‰РµРіРѕ РѕР±СЊРµРєС‚Р°
 {
 	author = goal.author;
 	title = goal.title;
@@ -37,13 +37,13 @@ void book::Read_from_file(ifstream& fin)
 
 void book::Print()
 {
-	cout << "Автор:" << author << ", Название:" << title << ", Год:" << year << ", Количество страниц:" << amount << ", Предмет:" << speciality << endl;
+	cout << "РђРІС‚РѕСЂ:" << author << ", РќР°Р·РІР°РЅРёРµ:" << title << ", Р“РѕРґ:" << year << ", РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂР°РЅРёС†:" << amount << ", РџСЂРµРґРјРµС‚:" << speciality << endl;
 }
 
-bool book::compare(book& second) // метод compare, сравнивающий по полю year: true, если нужно идти на некст ноду (если second меньше - возврат true)
+bool book::compare(book& second) // РјРµС‚РѕРґ compare, СЃСЂР°РІРЅРёРІР°СЋС‰РёР№ РїРѕ РїРѕР»СЋ year: true, РµСЃР»Рё РЅСѓР¶РЅРѕ РёРґС‚Рё РЅР° РЅРµРєСЃС‚ РЅРѕРґСѓ (РµСЃР»Рё second РјРµРЅСЊС€Рµ - РІРѕР·РІСЂР°С‚ true)
 {
 	bool res = true;
-	if (year > second.year) //если 1 > 2 то возврат true, если 1 <= 2 возврат false
+	if (year > second.year) //РµСЃР»Рё 1 > 2 С‚Рѕ РІРѕР·РІСЂР°С‚ true, РµСЃР»Рё 1 <= 2 РІРѕР·РІСЂР°С‚ false
 	{
 		res = false;
 	}
